@@ -4,11 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:name] && !params[:name].empty?
-      session[:name] = params[:name]
-      redirect_to '/'
+    @user = User.find_by(name: params["user"]["name"])
+    if @user.authenticate(params["user"]["password"])
+      session[:user_id] = @user.id
+      redirect_to(controller: 'application', action: 'welcome')
     else 
-      redirect_to(controller: 'sessions', action: 'new')
+      redirect_to(controller: 'users', action: 'new')
     end 
   end 
 
@@ -18,3 +19,9 @@ class SessionsController < ApplicationController
   end
   
 end
+
+
+@user = User.find_by(name: params[:user][:name])
+        return head(:forbidden) unless @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to controller: 'welcome', action: 'home'
