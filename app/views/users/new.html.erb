@@ -1,5 +1,10 @@
 <h1>Create New User</h1>
 
-<form_tag controller: "users", action: "create", method: "post">
+<%= form_tag {controller: "users", action: "create", method: "post"} do %>
   
 </form_tag>
+
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  <input name=name>
+  <input type=submit value='login'>
+<% end %>
