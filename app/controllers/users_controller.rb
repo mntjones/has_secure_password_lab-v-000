@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       @user.name = params["user"]["name"]
+      binding.pry
       session[:user_id] = @user.id
       redirect_to controller: 'application', action: 'welcome'
     else
