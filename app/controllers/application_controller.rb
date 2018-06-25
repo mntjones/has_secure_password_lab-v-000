@@ -4,11 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def welcome
-    if session[:user_id]
-      render :welcome
-    else
-      redirect_to controller: 'sessions', action: 'new'
-    end
+    
   end
   
 end
