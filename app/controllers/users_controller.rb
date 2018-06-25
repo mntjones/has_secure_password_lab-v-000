@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.name = params["user"]["name"]
       session[:user_id] = @user.id
       redirect_to controller: 'application', action: 'welcome'
     else
