@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   
-  def new
+  ef new
     
   end
   
@@ -10,6 +10,6 @@ class SessionsController < ApplicationController
   
   def destroy
     
-  end
+  endd
   
 end
