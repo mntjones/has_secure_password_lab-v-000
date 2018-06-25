@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       render :welcome
     else
-      redirect_to controller: 'sessions' action: 'new'
+      redirect_to controller: 'sessions', action: 'new'
     end
   end
 end
